@@ -38,10 +38,10 @@ ament_export_targets(fast_astar HAS_LIBRARY_TARGET)
 ament_package()
 
 
-#install(
-#  DIRECTORY include/fast_astar
-#  DESTINATION include
-#)
+install(
+  DIRECTORY include/fast_astar
+  DESTINATION include
+)
 
 install(
   TARGETS fast_astar
