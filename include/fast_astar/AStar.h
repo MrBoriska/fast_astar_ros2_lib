@@ -68,4 +68,13 @@ size_t ASPathGetCount(ASPath path);
 // returns a pointer to the given node in the path
 void *ASPathGetNode(ASPath path, size_t index);
 
+// Create Empty path with memory allocation
+ASPath ASPathEmpty(const ASPathNodeSource *source, size_t count);
+
+// Set cost for path by index
+void ASPathSetCost(ASPath path, size_t index, float cost);
+
+// Set nodeKey for path by index
+void ASPathSetNode(const ASPathNodeSource *source, ASPath path, size_t index, void * nodeKey);
+
 #endif

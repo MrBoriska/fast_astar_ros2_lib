@@ -535,6 +535,8 @@ ASPath ASPathCopy(ASPath path)
     }
 }
 
+
+
 float ASPathGetCost(ASPath path, size_t index)
 {
     return path? path->costs[index] : INFINITY;
@@ -548,4 +550,26 @@ size_t ASPathGetCount(ASPath path)
 void *ASPathGetNode(ASPath path, size_t index)
 {
     return (path && index < path->count)? (path->nodeKeys + (index * path->nodeSize)) : NULL;
+}
+
+ASPath ASPathEmpty(const ASPathNodeSource *source, size_t count)
+{
+    ASPath newPath = malloc(sizeof(struct __ASPath));
+    newPath->nodeSize = source->nodeSize;
+    newPath->count = count;
+    newPath->costs = malloc(newPath->count*sizeof(float));
+    newPath->nodeKeys = malloc(newPath->count*newPath->nodeSize);
+        
+    return newPath;
+}
+
+void ASPathSetCost(ASPath path, size_t index, float cost)
+{
+    path->costs[index] = cost;
+}
+
+void ASPathSetNode(const ASPathNodeSource *source, ASPath path, size_t index, void * nodeKey)
+{
+
+    memcpy(path->nodeKeys + ((index - 1) * source->nodeSize), nodeKey, source->nodeSize);
 }
