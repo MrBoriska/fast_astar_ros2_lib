@@ -568,8 +568,7 @@ void ASPathSetCost(ASPath path, size_t index, float cost)
     path->costs[index] = cost;
 }
 
-void ASPathSetNode(const ASPathNodeSource *source, ASPath path, size_t index, void * nodeKey)
+void ASPathSetNode(const ASPathNodeSource *source, ASPath path, size_t index, const void * nodeKey)
 {
-
-    memcpy(path->nodeKeys + ((index - 1) * source->nodeSize), nodeKey, source->nodeSize);
+    memcpy(path->nodeKeys + (index * source->nodeSize), nodeKey, source->nodeSize);
 }

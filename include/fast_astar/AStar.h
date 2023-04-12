@@ -75,6 +75,6 @@ ASPath ASPathEmpty(const ASPathNodeSource *source, size_t count);
 void ASPathSetCost(ASPath path, size_t index, float cost);
 
 // Set nodeKey for path by index
-void ASPathSetNode(const ASPathNodeSource *source, ASPath path, size_t index, void * nodeKey);
+void ASPathSetNode(const ASPathNodeSource *source, ASPath path, size_t index, const void * nodeKey);
 
 #endif
