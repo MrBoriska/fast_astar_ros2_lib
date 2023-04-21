@@ -515,7 +515,7 @@ void ASPathDestroy(ASPath path)
     
     if (path && path->costs) free(path->costs);
     if (path && path->nodeKeys) free(path->nodeKeys);
-    free(path);
+    if (path) free(path);
 }
 
 ASPath ASPathCopy(ASPath path)
