@@ -539,7 +539,7 @@ ASPath ASPathCopy(ASPath path)
 
 float ASPathGetCost(ASPath path, size_t index)
 {
-    return path? path->costs[index] : INFINITY;
+    return (path && index < path->count)? path->costs[index] : INFINITY;
 }
 
 size_t ASPathGetCount(ASPath path)
